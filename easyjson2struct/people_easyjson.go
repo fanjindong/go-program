@@ -42,8 +42,8 @@ func easyjson1aeb6805DecodeGoProgramEasyjson2struct(in *jlexer.Lexer, out *Peopl
 			out.Sex = int(in.Int())
 		case "Phone":
 			out.Phone = string(in.String())
-		case "Id":
-			out.Id = int(in.Int())
+		case "ID":
+			out.ID = int(in.Int())
 		default:
 			in.SkipRecursive()
 		}
@@ -74,9 +74,9 @@ func easyjson1aeb6805EncodeGoProgramEasyjson2struct(out *jwriter.Writer, in Peop
 		out.String(string(in.Phone))
 	}
 	{
-		const prefix string = ",\"Id\":"
+		const prefix string = ",\"ID\":"
 		out.RawString(prefix)
-		out.Int(int(in.Id))
+		out.Int(int(in.ID))
 	}
 	out.RawByte('}')
 }
