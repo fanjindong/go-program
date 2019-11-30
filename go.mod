@@ -3,6 +3,7 @@ module go-program
 go 1.12
 
 require (
+	github.com/garyburd/redigo v1.6.0
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/imroc/req v0.2.4
