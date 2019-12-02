@@ -11,6 +11,7 @@ require (
 	github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e
 	github.com/pkg/errors v0.8.1 // indirect
 	go.mongodb.org/mongo-driver v1.1.1
+	go.uber.org/ratelimit v0.1.0
 	golang.org/x/tools v0.0.0-20190829051458-42f498d34c4d // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22

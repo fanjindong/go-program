@@ -1,40 +1,28 @@
 package option
 
-import (
-	"gotest.tools/assert"
-	"strconv"
-	"testing"
-)
+import "testing"
 
-func TestOption(t *testing.T) {
-	option := NewOption()
-	option.Default = "fjd"
+type Mapper map[string]interface{}
 
-	m := NewMap(option)
-	assert.Equal(t, len(m), option.Max-option.Min+1)
-	for _, value := range m {
-		assert.Equal(t, value, option.Default)
-	}
-}
-
-type Option struct {
-	Default string
-	Min     int
-	Max     int
-}
-
-func NewOption() *Option {
-	return &Option{
-		Default: "10098",
-		Min:     10,
-		Max:     20,
-	}
-}
-
-func NewMap(option *Option) map[string]interface{} {
-	m := make(map[string]interface{}, option.Max-option.Min)
-	for i := option.Min; i <= option.Max; i++ {
-		m[strconv.Itoa(i)] = option.Default
+func New(key string, opts ...Option) Mapper {
+	m := Mapper{key: ""}
+	for _, opt := range opts {
+		opt(&m)
 	}
 	return m
+}
+
+type Option func(m *Mapper)
+
+func WithDefault(value interface{}) Option {
+	return func(m *Mapper) {
+		for key, _ := range *m {
+			(*m)[key] = value
+		}
+	}
+}
+
+func TestOption(t *testing.T) {
+	m := New("name", WithDefault("fjd"))
+	t.Log(m)
 }
