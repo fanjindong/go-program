@@ -1,7 +1,7 @@
 package set
 
 import (
-	mapset "github.com/deckarep/golang-set"
+	"github.com/deckarep/golang-set"
 	"gotest.tools/assert"
 	"testing"
 )
