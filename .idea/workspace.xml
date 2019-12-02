@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92445382-a55e-4164-9181-946f71c3ff9e" name="Default Changelist" comment="feat:">
+    <list default="true" id="92445382-a55e-4164-9181-946f71c3ff9e" name="Default Changelist" comment="feat: add iota, rate limit demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +57,16 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunManager" selected="Go Test.TestOption in go-program/option">
-    <configuration name="TestMdb in go-program/mdb" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestMapSet in go-program/set">
+    <configuration name="TestMapSet in go-program/set" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-program" />
-      <working_directory value="$PROJECT_DIR$/mdb" />
+      <working_directory value="$PROJECT_DIR$/set" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-program/mdb" />
+      <package value="go-program/set" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMdb$" />
+      <pattern value="^TestMapSet$" />
       <method v="2" />
     </configuration>
     <configuration name="TestOption in go-program/option" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -78,34 +80,45 @@
       <pattern value="^TestOption$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestRedis in go-program/redis" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRateLimit in go-program/rateLimiter" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-program" />
-      <working_directory value="$PROJECT_DIR$/redis" />
+      <working_directory value="$PROJECT_DIR$/rateLimiter" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-program/redis" />
+      <package value="go-program/rateLimiter" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestRedis$" />
+      <pattern value="^TestRateLimit$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestTime in go-program/time" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSwitch in go-program/iota" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-program" />
-      <working_directory value="$PROJECT_DIR$/time" />
+      <working_directory value="$PROJECT_DIR$/iota" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-program/time" />
+      <package value="go-program/iota" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestTime$" />
+      <pattern value="^TestSwitch$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mapset_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-program" />
+      <working_directory value="$PROJECT_DIR$/set" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="go-program" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/set/mapset_test.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestMapSet in go-program/set" />
+        <item itemvalue="Go Test.mapset_test.go" />
         <item itemvalue="Go Test.TestOption in go-program/option" />
-        <item itemvalue="Go Test.TestMdb in go-program/mdb" />
-        <item itemvalue="Go Test.TestRedis in go-program/redis" />
-        <item itemvalue="Go Test.TestTime in go-program/time" />
+        <item itemvalue="Go Test.TestRateLimit in go-program/rateLimiter" />
+        <item itemvalue="Go Test.TestSwitch in go-program/iota" />
       </list>
     </recent_temporary>
   </component>
@@ -126,33 +139,39 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:" />
+    <MESSAGE value="feat: add option demo" />
+    <MESSAGE value="feat: add iota, rate limit demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add iota, rate limit demo" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="889" y="220" key="CommitChangelistDialog2" timestamp="1575271669705">
+    <state x="889" y="220" key="CommitChangelistDialog2" timestamp="1575278569424">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
-    <state x="889" y="220" key="CommitChangelistDialog2/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575271669705" />
-    <state width="2518" height="373" key="GridCell.Tab.0.bottom" timestamp="1575272151679">
+    <state x="889" y="220" key="CommitChangelistDialog2/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575278569424" />
+    <state width="2518" height="373" key="GridCell.Tab.0.bottom" timestamp="1575279719020">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
-    <state width="2518" height="373" key="GridCell.Tab.0.bottom/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575272151679" />
-    <state width="2518" height="373" key="GridCell.Tab.0.center" timestamp="1575272151678">
+    <state width="2518" height="373" key="GridCell.Tab.0.bottom/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575279719020" />
+    <state width="2518" height="373" key="GridCell.Tab.0.center" timestamp="1575279719019">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
-    <state width="2518" height="373" key="GridCell.Tab.0.center/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575272151678" />
-    <state width="2518" height="373" key="GridCell.Tab.0.left" timestamp="1575272151678">
+    <state width="2518" height="373" key="GridCell.Tab.0.center/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575279719019" />
+    <state width="2518" height="373" key="GridCell.Tab.0.left" timestamp="1575279719018">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
-    <state width="2518" height="373" key="GridCell.Tab.0.left/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575272151678" />
-    <state width="2518" height="373" key="GridCell.Tab.0.right" timestamp="1575272151679">
+    <state width="2518" height="373" key="GridCell.Tab.0.left/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575279719018" />
+    <state width="2518" height="373" key="GridCell.Tab.0.right" timestamp="1575279719020">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
-    <state width="2518" height="373" key="GridCell.Tab.0.right/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575272151679" />
+    <state width="2518" height="373" key="GridCell.Tab.0.right/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575279719020" />
+    <state x="880" y="442" key="Vcs.Push.Dialog.v2" timestamp="1575278570924">
+      <screen x="0" y="23" width="2560" height="1369" />
+    </state>
+    <state x="880" y="442" key="Vcs.Push.Dialog.v2/2560.729.1440.877/0.23.2560.1369@0.23.2560.1369" timestamp="1575278570924" />
     <state x="879" y="421" width="801" height="572" key="find.popup" timestamp="1575271591491">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>
