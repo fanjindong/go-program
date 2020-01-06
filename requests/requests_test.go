@@ -1,13 +1,11 @@
 package requests__test
 
 import (
+	"github.com/fanjindong/go-requests"
 	"github.com/stretchr/testify/assert"
 	"math/rand"
 	"strconv"
 	"testing"
-)
-import (
-	"github.com/fanjindong/go-requests"
 )
 
 func TestRequestsGet(t *testing.T) {
@@ -31,4 +29,23 @@ func TestRequestsPost(t *testing.T) {
 	respData := make(map[string]interface{})
 	_ = resp.Json(&respData)
 	assert.Equal(t, respData["data"].(map[string]interface{})["name"], name)
+}
+
+func TestRequestsFiles(t *testing.T) {
+	file, err := requests.FileFromPath("./a.text")
+	assert.NoError(t, err)
+	resp, err := requests.Post(
+		"https://email.neoclub.cn/send_email",
+		requests.Files{"subject": "go-requests", "text": "nice", "toAddr": "jd.fan@neoclub.cn", "file1": file},
+	)
+	assert.NoError(t, err)
+	assert.Equal(t, 200, resp.StatusCode)
+
+	var r struct {
+		Code    int    `json:"code"`
+		Message string `json:"message"`
+	}
+	err = resp.Json(&r)
+	assert.NoError(t, err)
+	assert.Equal(t, 0, r.Code)
 }
