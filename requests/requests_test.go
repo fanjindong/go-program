@@ -1,6 +1,7 @@
 package requests__test
 
 import (
+	"fmt"
 	"github.com/fanjindong/go-requests"
 	"github.com/stretchr/testify/assert"
 	"math/rand"
@@ -48,4 +49,32 @@ func TestRequestsFiles(t *testing.T) {
 	err = resp.Json(&r)
 	assert.NoError(t, err)
 	assert.Equal(t, 0, r.Code)
+}
+
+func TestRequests(t *testing.T) {
+	resp, err := requests.Get("http://dpp.boluome.com/ping", requests.Params{"name": "fjd"})
+	if err != nil {
+		fmt.Printf("Get err: %v", err)
+	}
+
+	fmt.Println(resp.Text)
+	var rMap map[string]interface{}
+	var rStruct struct {
+		Code int `json:"code"`
+	}
+
+	err = resp.Json(&rMap)
+	if err != nil {
+		fmt.Printf("resp.Json to map err: %v \n", err)
+	} else {
+		fmt.Printf("resp.Json to map: %v \n", rMap)
+	}
+
+	err = resp.Json(&rStruct)
+	if err != nil {
+		fmt.Printf("resp.Json to struct err: %v \n", err)
+	} else {
+		fmt.Printf("resp.Json to struct: %+v \n", rStruct)
+	}
+
 }
