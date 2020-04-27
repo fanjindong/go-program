@@ -56,7 +56,8 @@ func TestRequests(t *testing.T) {
 	if err != nil {
 		fmt.Printf("Get err: %v", err)
 	}
-
+	fmt.Println(resp.Request.URL)
+	fmt.Println(resp.Header)
 	fmt.Println(resp.Text)
 	var rMap map[string]interface{}
 	var rStruct struct {
