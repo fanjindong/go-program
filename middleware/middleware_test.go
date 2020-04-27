@@ -8,10 +8,8 @@ type Middleware interface {
 type Log struct {
 }
 
-func (l *Log)
-
 type Service struct {
-	mws []
+	mws []string
 }
 
 func (s *Service) Sum(x, y int) int {
@@ -21,4 +19,3 @@ func (s *Service) Sum(x, y int) int {
 func (s *Service) Multiply(x, y int) int {
 	return x * y
 }
-
