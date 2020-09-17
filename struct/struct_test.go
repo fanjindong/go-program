@@ -1,6 +1,9 @@
 package _struct
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 type Base struct {
 	A int
@@ -31,4 +34,34 @@ func TestSubStruct(t *testing.T) {
 	t.Log(two.Sum())
 	two.Swap()
 	t.Log(two, two.A, two.B)
+}
+
+type A struct {
+	data string
+}
+
+func (a A) Print() {
+	fmt.Println("A: ", a.data)
+}
+
+type B struct {
+	A
+	data string
+}
+
+func (b B) Print() {
+	fmt.Println("B: ", b.data)
+}
+
+// 这个例子说明，go只有结构体组合，没有继承
+func TestStructCombination(t *testing.T) {
+	a := A{data: "aaa"}
+	b := B{data: "bbb", A: a}
+	a.Print()
+	b.Print()
+	b.A.Print()
+	// output:
+	//A:  aaa
+	//B:  bbb
+	//A:  aaa
 }

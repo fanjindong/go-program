@@ -2,6 +2,7 @@ package time_test
 
 import (
 	"testing"
+	"strconv"
 	"time"
 )
 
@@ -25,4 +26,10 @@ func TestServiceRemainSecond(t *testing.T) {
 
 	t.Log(remainSecond.Seconds())
 	t.Log(86400 - (time.Now().Unix()-int64(1577808000))%86400)
+}
+
+
+func TestInit(t *testing.T) {
+	t.Log(string(10086))
+	t.Log(strconv.Itoa(10086))
 }
