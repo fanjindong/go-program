@@ -26,4 +26,6 @@ func TestSwitch(t *testing.T) {
 	assert.Equal(t, Off, 2)
 	assert.Equal(t, Set, 4)
 	t.Log(On&Off, On|Off)
+	// output:
+	//0 3
 }

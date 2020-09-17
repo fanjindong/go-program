@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/deckarep/golang-set v1.7.1
 	github.com/fanjindong/go-requests v0.0.0-20200106124836-ccee2b6bcaac
-	github.com/fanjindong/scheduler v0.5.1
+	github.com/fanjindong/scheduler v0.5.0
 	github.com/garyburd/redigo v1.6.0
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/imroc/req v0.2.4
