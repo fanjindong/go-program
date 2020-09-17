@@ -35,3 +35,22 @@ func listen(ch2 chan chan string, t *testing.T) {
 		t.Log(<-ch)
 	}
 }
+
+// 这个例子说明，如果没有声明default，则会阻塞代码块直到有一个case可执行
+func TestSelect(t *testing.T) {
+	deadline := time.After(3 * time.Second)
+	select {
+	case <-deadline:
+		t.Log("deadline")
+	default:
+		t.Log("default")
+	}
+	// output:
+	// default
+	select {
+	case <-deadline:
+		t.Log("deadline")
+	}
+	// output:
+	// deadline
+}
