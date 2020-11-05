@@ -76,3 +76,17 @@ func TestSizePadding(t *testing.T) {
 	// output:
 	// 40 4 8 8 8 0
 }
+
+func BenchmarkTypeConv1(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var value interface{} = 10
+		_ = *(*int64)(unsafe.Pointer(&value))
+	}
+}
+
+func BenchmarkTypeConv2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var value int8 = 10
+		_ = int64(value)
+	}
+}
