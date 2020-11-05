@@ -23,6 +23,8 @@ func TestOne(t *testing.T) {
 
 	setHeaderLen(s) // [1 2 3 0]
 	t.Log(s)        // [1 2 3]
+
+	t.Log(array[0:0]) // []
 }
 
 func sliceAppend(s []int, a int) {
