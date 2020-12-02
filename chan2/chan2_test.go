@@ -54,3 +54,29 @@ func TestSelect(t *testing.T) {
 	// output:
 	// deadline
 }
+
+// 这个例子说明，生产者close chan 不影响消费者，完美。
+func TestCloseChan(t *testing.T) {
+	stream := make(chan int, 6)
+	wg := sync.WaitGroup{}
+	product := func() {
+		defer wg.Done()
+		defer close(stream)
+		for i := 0; i < 10; i++ {
+			stream <- i
+		}
+		t.Log("product over!")
+	}
+	consumer := func() {
+		defer wg.Done()
+		for value := range stream {
+			t.Log(value)
+			time.Sleep(1 * time.Second)
+		}
+		t.Log("consumer over")
+	}
+	wg.Add(2)
+	go consumer()
+	go product()
+	wg.Wait()
+}
