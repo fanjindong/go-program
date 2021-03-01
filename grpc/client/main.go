@@ -3,6 +3,7 @@ package main
 
 import (
 	"context"
+	"go-program/grpc/codec"
 	"log"
 	"os"
 	"time"
@@ -32,7 +33,7 @@ func main() {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
+	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name}, grpc.CallCustomCodec(codec.Params{}))
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}

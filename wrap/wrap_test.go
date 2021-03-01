@@ -26,3 +26,16 @@ func TestWrapSum(t *testing.T) {
 	result := sumWrap(1, 2)
 	t.Log(result)
 }
+
+type S struct {
+	A func()
+}
+
+func NewS() *S {
+	s := &S{}
+	s.A = func() { s.A() }
+	return s
+}
+
+func (s *S) A() {
+}

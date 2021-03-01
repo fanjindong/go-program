@@ -3,6 +3,8 @@ package main
 
 import (
 	"context"
+	"go-program/grpc/codec"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 
@@ -30,8 +32,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.CustomCodec(&codec.Params{}))
 	pb.RegisterGreeterServer(s, &server{})
+	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

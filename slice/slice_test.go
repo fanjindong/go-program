@@ -37,3 +37,45 @@ func setHeaderLen(s []int) {
 	sh.Len += 1
 	fmt.Println(*(*[]int)(unsafe.Pointer(sh)))
 }
+
+// 42.0 ns/op
+func BenchmarkMakeSliceWithLength(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		s := make([]int, 4)
+		s = append(s, 1)
+		s = append(s, 2)
+		s = append(s, 3)
+		s = append(s, 4)
+	}
+}
+
+// 91.9 ns/op
+func BenchmarkMakeSliceWithoutLength(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		s := make([]int, 0)
+		s = append(s, 1)
+		s = append(s, 2)
+		s = append(s, 3)
+		s = append(s, 4)
+	}
+}
+
+type S struct {
+	A string
+	B string
+	C string
+	D string
+	E string
+	F string
+	G string
+}
+
+func TestAppend(t *testing.T) {
+	s1 := make([]int, 1, 2)
+	s1[0] = 1
+	s2 := append(s1, 2)
+	t.Log(s1, s2)
+
+	s3 := append(s2, 3)
+	t.Log(s1, s2, s3)
+}
