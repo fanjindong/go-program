@@ -169,3 +169,23 @@ func commandNameBasedUniqueConsumerTag(commandName string) string {
 func TestAmqp(t *testing.T) {
 	t.Log(uniqueConsumerTag())
 }
+
+func TestVarAndVar(t *testing.T) {
+	var ok bool
+	var okk bool
+	if a, ok := sum(1, 2, 3); ok {
+		t.Log(a)
+	}
+	t.Log(ok)
+	b, okk := sum(1, 2, 3)
+	t.Log(b)
+	t.Log(okk)
+}
+
+func sum(vs ...int) (int, bool) {
+	var s int
+	for _, v := range vs {
+		s += v
+	}
+	return s, true
+}

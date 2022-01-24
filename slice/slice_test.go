@@ -79,3 +79,16 @@ func TestAppend(t *testing.T) {
 	s3 := append(s2, 3)
 	t.Log(s1, s2, s3)
 }
+
+func setL(ss []S) {
+	for i := range ss {
+		item := ss[i]
+		item.A = "l"
+		ss[i] = item
+	}
+}
+func TestA(t *testing.T) {
+	var ss = []S{{A: "a"}, {A: "b"}, {A: "c"}}
+	setL(ss)
+	t.Log(ss)
+}

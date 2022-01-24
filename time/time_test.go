@@ -2,7 +2,6 @@ package time_test
 
 import (
 	"testing"
-	"strconv"
 	"time"
 )
 
@@ -28,8 +27,13 @@ func TestServiceRemainSecond(t *testing.T) {
 	t.Log(86400 - (time.Now().Unix()-int64(1577808000))%86400)
 }
 
-
-func TestInit(t *testing.T) {
-	t.Log(string(10086))
-	t.Log(strconv.Itoa(10086))
+func TestBlockTicker(t *testing.T) {
+	ticker := time.NewTicker(1 * time.Second)
+	for {
+		select {
+		case now := <-ticker.C:
+			t.Log(time.Now().Unix(), now.Unix())
+			time.Sleep(3 * time.Second)
+		}
+	}
 }
